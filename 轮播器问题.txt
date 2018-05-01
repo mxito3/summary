@@ -1,0 +1,24 @@
+﻿
+<div id="div1">//外部容器。overflow: hidden;隐藏超出的部分
+        <div id="div2">
+	    <img src="image/1.jpg" alt="1">
+            <img src="image/2.jpg" alt="2">
+            <img src="image/3.jpg" alt="3">
+            <img src="image/4.jpg" alt="4">
+        </div>
+</div>
+思路：一. 解决图片大小自适应屏幕。
+	 1.div1设置成一个百分比，假设为百分之a。
+	 2.div2设置成一个百分数，大小为a*picture_num。
+	 3.将图片放在div2里面，设置成向左浮动。
+	 4.图片大小为100%/picture_num;        //父元素是div2
+      二. 移动的时候移动一个百分比.
+         1.通过juery的animate移动。
+         
+	 
+     遇到的问题：
+     $("#div2").animate({left:"-=move_step"});里面用+=或者-=的时候会出现问题。
+
+       解决方案： $("#div2").animate({left:"-="+move_step});//语法问题。
+
+
